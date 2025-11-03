@@ -7,7 +7,7 @@ router.get('/rooms', async (req, res) => {
   const { data, error } = await supabase
     .from('rooms')
     .select('*')
-    .order('room_name', { ascending: true });
+    .order('title', { ascending: true });
 
   if (error) return res.status(500).json({ error: error.message });
   res.json(data);
