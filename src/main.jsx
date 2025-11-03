@@ -1,14 +1,8 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-
-function Home() {
-  return <h1 style={{ textAlign: "center", marginTop: "4rem" }}>Home page works</h1>
-}
-
-function Rooms() {
-  return <h1 style={{ textAlign: "center", marginTop: "4rem" }}>Rooms page works</h1>
-}
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home.jsx";
+import Rooms from "./Rooms.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,6 +13,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
-)
-
-import Home from "./Home.jsx"
+);
