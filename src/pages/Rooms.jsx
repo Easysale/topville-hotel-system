@@ -68,3 +68,6 @@ export default function Rooms() {
     </section>
   );
 }
+export default function Rooms() {
+  return <h1 style={{ textAlign: "center", marginTop: "4rem" }}>Rooms page works</h1>
+}
