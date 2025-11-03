@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home.jsx";
-import Rooms from "./Rooms.jsx";
-
+import Rooms from "./pages/Rooms.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -14,4 +13,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-import Rooms from "./pages/Rooms.jsx";
+
