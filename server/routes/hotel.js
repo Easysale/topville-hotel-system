@@ -1,31 +1,3 @@
-import express from "express";
-import cors from "cors";
-import hotelRoutes from "./routes/hotel.js";
-
-const app = express();
-
-// ✅ CORS must come before any routes
-app.use(
-  cors({
-    origin: [
-      "https://www.topvillehotel.com",
-      "https://topville-hotel.vercel.app"
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
-app.options("*", cors()); // preflight handler
-
-app.use(express.json());
-
-// ✅ Register routes after CORS
-app.use("/api", hotelRoutes);
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
-
 import express from 'express';
 import supabase from '../supabaseClient.js';
 
