@@ -1,6 +1,12 @@
+import express from 'express';
+import hotelRouter from './routes/hotel.js';
 
-const express = require('express');
 const app = express();
-app.get('/api/health', (req,res)=>res.json({ok:true}));
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, ()=>console.log('Server running on', PORT));
+app.use(express.json());
+
+app.use('/api', hotelRouter);
+
+app.get('/api/health', (req, res) => res.json({ ok: true }));
+
+const port = process.env.PORT || 4000;
+app.listen(port, () => console.log(`API running on port ${port}`));
