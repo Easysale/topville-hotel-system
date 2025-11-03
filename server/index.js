@@ -4,6 +4,18 @@ const app = express();
 app.use(
   cors({
     origin: [
+      "https://www.topvillehotel.com",   // ✅ your live site
+      "https://topville-hotel.vercel.app" // ✅ optional: Vercel preview
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
+app.use(
+  cors({
+    origin: [
       "https://www.topvillehotel.com",
       "https://topville-hotel.vercel.app",
     ],
