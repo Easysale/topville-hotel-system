@@ -14,3 +14,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </React.StrictMode>
 );
+import Rooms from "./pages/Rooms.jsx";
