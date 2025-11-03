@@ -3,7 +3,6 @@ import supabase from '../supabaseClient.js';
 
 const router = express.Router();
 
-// Get all rooms (with price, features, and image)
 router.get('/rooms', async (req, res) => {
   const { data, error } = await supabase
     .from('rooms')
@@ -18,7 +17,6 @@ router.get('/rooms', async (req, res) => {
   res.json(data);
 });
 
-// Get all bookings (optional)
 router.get('/bookings', async (req, res) => {
   const { data, error } = await supabase
     .from('bookings')
@@ -30,5 +28,3 @@ router.get('/bookings', async (req, res) => {
 });
 
 export default router;
-
-Update rooms API to include price, features, and image data
