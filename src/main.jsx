@@ -1,21 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './Home.jsx'
-import Rooms from './pages/Rooms.jsx'
-import './index.css'
+import React from "react"
+import ReactDOM from "react-dom/client"
 
-// Main entry point with routes
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        {/* Home page */}
-        <Route path="/" element={<Home />} />
-
-        {/* Rooms page */}
-        <Route path="/rooms" element={<Rooms />} />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>,
+    <div style={{ textAlign: "center", marginTop: "5rem" }}>
+      <h1>✅ React is working on Topville Hotel</h1>
+      <p>If you can see this, we’ve confirmed the frontend build works.</p>
+    </div>
+  </React.StrictMode>
 )
