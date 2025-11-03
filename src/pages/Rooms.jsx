@@ -71,3 +71,4 @@ export default function Rooms() {
 export default function Rooms() {
   return <h1 style={{ textAlign: "center", marginTop: "4rem" }}>Rooms page works</h1>
 }
+import Rooms from "./Rooms.jsx"
