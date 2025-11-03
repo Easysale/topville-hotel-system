@@ -1,12 +1,13 @@
-import express from 'express';
-import hotelRouter from './routes/hotel.js';
+import express from "express";
+import cors from "cors";
 
 const app = express();
-app.use(express.json());
 
-app.use('/api', hotelRouter);
-
-app.get('/api/health', (req, res) => res.json({ ok: true }));
-
-const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`API running on port ${port}`));
+// ✅ Allow requests from your website
+app.use(
+  cors({
+    origin: ["https://www.topvillehotel.com", "https://topville-hotel.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
