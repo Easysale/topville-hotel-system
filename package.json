@@ -1,3 +1,4 @@
+
 {
   "type": "module",
   "name": "topville-hotel-system",
@@ -24,3 +25,4 @@
     "tailwindcss": "^3.4.13"
   }
 }
+npm install cors
