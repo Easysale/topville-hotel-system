@@ -14,7 +14,3 @@ export default function Home() {
     </main>
   );
 }
-
-export default function Home() {
-  return <h1 style={{ textAlign: "center", marginTop: "4rem" }}>Home page works</h1>
-}
