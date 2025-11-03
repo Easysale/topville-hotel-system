@@ -1,11 +1,21 @@
-
 import React from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './Home.jsx'
 import Rooms from './pages/Rooms.jsx'
-import './styles.css'
-import Home from './pages/Home'
-createRoot(document.getElementById('root')).render(
-  <BrowserRouter><Routes><Route path='/' element={<Home/>} /></Routes></BrowserRouter>
+import './index.css'
+
+// Main entry point with routes
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        {/* Home page */}
+        <Route path="/" element={<Home />} />
+
+        {/* Rooms page */}
+        <Route path="/rooms" element={<Rooms />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>,
 )
