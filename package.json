@@ -1,9 +1,5 @@
 {
-  {
   "type": "module",
-  ...
-}
-
   "name": "topville-hotel-system",
   "version": "0.1.0",
   "private": true,
