@@ -1,37 +1,31 @@
 import express from "express";
 import cors from "cors";
+import hotelRoutes from "./routes/hotel.js";
 
 const app = express();
 
-// ✅ put this FIRST, right after you create `app`
+// ✅ 1️⃣ Add CORS middleware BEFORE routes
 app.use(
   cors({
     origin: [
       "https://www.topvillehotel.com",
-      "https://topville-hotel.vercel.app"
+      "https://topville-hotel.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
+    credentials: true,
   })
 );
 
-// optional convenience
-app.options("*", cors());   // handle pre-flight requests
+// ✅ 2️⃣ Handle preflight requests
+app.options("*", cors());
 
-// now the rest of your middleware and routes
+// ✅ 3️⃣ Add JSON middleware AFTER CORS, BEFORE routes
 app.use(express.json());
 
-app.get("/api/rooms", async (req, res) => {
-  // example static data
-  const rooms = [
-    { id: 1, title: "Deluxe Queen Room", price: "$150" },
-    { id: 2, title: "Executive King Suite", price: "$250" }
-  ];
-  res.json(rooms);
-});
+// ✅ 4️⃣ Register your router
+app.use("/api", hotelRoutes);
 
-// ...other routes
-
+// ✅ 5️⃣ Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
