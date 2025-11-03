@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://topville-hotel-api.onrender.com';
+const API_BASE =
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://topville-hotel-api.onrender.com";
 
 export default function Rooms() {
   const [rooms, setRooms] = useState([]);
@@ -14,7 +16,7 @@ export default function Rooms() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Error fetching rooms:', err);
+        console.error("Error fetching rooms:", err);
         setLoading(false);
       });
   }, []);
