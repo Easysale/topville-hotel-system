@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -7,7 +8,7 @@ export default function Navbar() {
         <Link to="/" className="text-xl font-bold text-gray-800">
           Topville Hotel
         </Link>
-        <ul className="flex gap-6 text-gray-700">
+        <ul className="flex gap-6 text-gray-700 font-medium">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/rooms">Rooms</Link></li>
           <li><Link to="/contact">Contact</Link></li>
