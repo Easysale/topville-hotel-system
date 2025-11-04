@@ -10,7 +10,7 @@ export default function Navbar() {
         <ul className="flex gap-6 text-gray-700">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/rooms">Rooms</Link></li>
-          <li><Link to="/contact">Contact</Link></li> {/* ✅ Added */}
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
       </div>
     </nav>
