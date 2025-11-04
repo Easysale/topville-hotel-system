@@ -7,9 +7,9 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navClass = scrolled
@@ -27,10 +27,11 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${navClass}`}
     >
-      <div className="container mx-auto flex justify-between items-center px-6 py-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo / Brand */}
         <Link
           to="/"
-          className={`text-2xl font-bold tracking-tight ${
+          className={`text-2xl md:text-3xl font-bold tracking-tight ${
             scrolled ? "text-blue-800" : "text-white"
           }`}
         >
@@ -43,12 +44,12 @@ export default function Navbar() {
             <li key={link.name}>
               <Link
                 to={link.path}
-                className={`hover:text-blue-600 transition ${
+                className={`transition ${
                   location.pathname === link.path
                     ? "text-blue-600 font-semibold"
                     : scrolled
-                    ? "text-gray-800"
-                    : "text-white"
+                    ? "text-gray-800 hover:text-blue-600"
+                    : "text-white hover:text-blue-300"
                 }`}
               >
                 {link.name}
@@ -57,25 +58,39 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Book Now Button (desktop only) */}
+        <a
+          href="https://wa.me/254781809900"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`hidden md:inline-block px-4 py-2 rounded-lg font-semibold transition ${
+            scrolled
+              ? "bg-blue-600 text-white hover:bg-blue-700"
+              : "bg-white text-blue-800 hover:bg-blue-100"
+          }`}
+        >
+          Book Now
+        </a>
+
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-2xl focus:outline-none"
+          className={`md:hidden text-3xl ${
+            scrolled ? "text-blue-800" : "text-white"
+          }`}
         >
           ☰
         </button>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div
-          className={`md:hidden bg-white shadow-md py-4 px-6 flex flex-col gap-4 text-gray-700 font-medium`}
-        >
+        <div className="md:hidden bg-white shadow-lg py-4 flex flex-col items-center gap-4 text-gray-800 font-medium">
           {links.map((link) => (
             <Link
               key={link.name}
               to={link.path}
-              onClick={() => setMenuOpen(false)}
+              onClick={()={setMenuOpen(false)}}
               className={`hover:text-blue-600 transition ${
                 location.pathname === link.path ? "text-blue-600 font-semibold" : ""
               }`}
@@ -83,6 +98,16 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+
+          {/* Book Now Button for Mobile */}
+          <a
+            href="https://wa.me/254781809900"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+          >
+            Book Now
+          </a>
         </div>
       )}
     </nav>
