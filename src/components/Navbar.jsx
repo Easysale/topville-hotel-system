@@ -1,16 +1,18 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav style={{ background: "#fff", padding: "1rem", borderBottom: "1px solid #eee" }}>
-      <Link to="/" style={{ marginRight: "1rem", fontWeight: "bold", color: "#0366d6" }}>
-        Topville Hotel Mombasa
-      </Link>
-      <Link to="/rooms" style={{ marginRight: "1rem" }}>Rooms</Link>
-      <Link to="/gallery" style={{ marginRight: "1rem" }}>Gallery</Link>
-      <Link to="/contact">Contact</Link>
-      <Link to="/contact" className="hover:text-blue-500">Contact</Link>
+    <nav className="bg-white shadow-md py-4">
+      <div className="container mx-auto flex justify-between items-center px-6">
+        <Link to="/" className="text-xl font-bold text-gray-800">
+          Topville Hotel
+        </Link>
+        <ul className="flex gap-6 text-gray-700">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/rooms">Rooms</Link></li>
+          <li><Link to="/contact">Contact</Link></li> {/* ✅ Added */}
+        </ul>
+      </div>
     </nav>
   );
 }
