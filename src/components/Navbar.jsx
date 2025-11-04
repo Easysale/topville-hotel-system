@@ -10,6 +10,7 @@ export default function Navbar() {
       <Link to="/rooms" style={{ marginRight: "1rem" }}>Rooms</Link>
       <Link to="/gallery" style={{ marginRight: "1rem" }}>Gallery</Link>
       <Link to="/contact">Contact</Link>
+      <Link to="/contact" className="hover:text-blue-500">Contact</Link>
     </nav>
   );
 }
