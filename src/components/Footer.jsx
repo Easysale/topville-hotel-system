@@ -2,10 +2,13 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#f0f4ff", padding: "1rem", textAlign: "center", marginTop: "2rem" }}>
-      <p>📍 Mombasa, Kenya</p>
-      <p>📞 +254 781 809 900 | ✉️ info@topvillehotel.com</p>
-      <p style={{ fontStyle: "italic", color: "#666" }}>Relax. Refresh. Reconnect.</p>
+    <footer className="bg-gray-900 text-gray-300 py-6 mt-10">
+      <div className="container mx-auto text-center">
+        <p className="text-sm">
+          © {new Date().getFullYear()} Topville Hotel Mombasa — All Rights Reserved.
+        </p>
+        <p className="text-xs mt-2 italic">Relax. Refresh. Reconnect.</p>
+      </div>
     </footer>
   );
 }
