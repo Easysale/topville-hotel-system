@@ -5,11 +5,8 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import Rooms from "./pages/Rooms.jsx";
+import Contact from "./pages/Contact.jsx"; // ✅ make sure this is .jsx
 import "./index.css";
-import Contact from "./pages/Contact";
-
-<Route path="/contact" element={<Contact />} />
-
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -18,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rooms" element={<Rooms />} />
+        <Route path="/contact" element={<Contact />} /> {/* ✅ moved inside */}
       </Routes>
       <Footer />
     </BrowserRouter>
