@@ -5,8 +5,8 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import Rooms from "./pages/Rooms.jsx";
-import Contact from "./pages/Contact.jsx";
 import Gallery from "./pages/Gallery.jsx";
+import Contact from "./pages/Contact.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
