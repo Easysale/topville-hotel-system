@@ -1,3 +1,20 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Rooms from "./pages/Rooms";
+import Contact from "./pages/Contact";
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/rooms" element={<Rooms />} />
+        <Route path="/contact" element={<Contact />} />   {/* ✅ add this */}
+      </Routes>
+    </Router>
+  );
+}
+
 <section className="contact-page py-16 px-6 bg-gray-50 text-gray-800">
   <div className="max-w-4xl mx-auto text-center">
     <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
