@@ -1,3 +1,14 @@
+import React from "react";
+
+export default function Contact() {
+  return (
+    <section>
+      <h1>Contact Us</h1>
+      <p>📍 Mombasa, Kenya</p>
+    </section>
+  );
+}
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
