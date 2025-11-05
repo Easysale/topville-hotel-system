@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navClass = scrolled
@@ -17,10 +16,10 @@ export default function Navbar() {
     : "bg-transparent text-white";
 
   const links = [
-    { name: "Home", path: "/" },
-    { name: "Rooms", path: "/rooms" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", to: "hero" },
+    { name: "Rooms", to: "rooms" },
+    { name: "Gallery", to: "gallery" },
+    { name: "Contact", to: "contact" },
   ];
 
   return (
@@ -28,37 +27,42 @@ export default function Navbar() {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${navClass}`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        {/* Logo / Brand */}
-        <Link
-          to="/"
-          className={`text-2xl md:text-3xl font-bold tracking-tight ${
+        <ScrollLink
+          to="hero"
+          smooth={true}
+          duration={800}
+          offset={-80}
+          className={`cursor-pointer text-2xl md:text-3xl font-bold tracking-tight ${
             scrolled ? "text-blue-800" : "text-white"
           }`}
         >
           Topville Hotel
-        </Link>
+        </ScrollLink>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 font-medium">
           {links.map((link) => (
             <li key={link.name}>
-              <Link
-                to={link.path}
-                className={`transition ${
-                  location.pathname === link.path
-                    ? "text-blue-600 font-semibold"
-                    : scrolled
+              <ScrollLink
+                to={link.to}
+                smooth={true}
+                duration={800}
+                offset={-80}
+                spy={true}
+                activeClass="text-blue-600 font-semibold"
+                className={`cursor-pointer transition ${
+                  scrolled
                     ? "text-gray-800 hover:text-blue-600"
                     : "text-white hover:text-blue-300"
                 }`}
               >
                 {link.name}
-              </Link>
+              </ScrollLink>
             </li>
           ))}
         </ul>
 
-        {/* Book Now Button (desktop only) */}
+        {/* Book Now Button */}
         <a
           href="https://wa.me/254781809900"
           target="_blank"
@@ -87,19 +91,18 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-white shadow-lg py-4 flex flex-col items-center gap-4 text-gray-800 font-medium">
           {links.map((link) => (
-            <Link
+            <ScrollLink
               key={link.name}
-              to={link.path}
-              onClick={()={setMenuOpen(false)}}
-              className={`hover:text-blue-600 transition ${
-                location.pathname === link.path ? "text-blue-600 font-semibold" : ""
-              }`}
+              to={link.to}
+              smooth={true}
+              duration={800}
+              offset={-80}
+              onClick={() => setMenuOpen(false)}
+              className="cursor-pointer hover:text-blue-600 transition"
             >
               {link.name}
-            </Link>
+            </ScrollLink>
           ))}
-
-          {/* Book Now Button for Mobile */}
           <a
             href="https://wa.me/254781809900"
             target="_blank"
