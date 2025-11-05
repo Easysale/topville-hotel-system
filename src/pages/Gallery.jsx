@@ -1,3 +1,7 @@
+<section className="pt-28 pb-16 px-6 bg-gray-50 min-h-screen text-center">
+  ...
+</section>
+
 import React from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
