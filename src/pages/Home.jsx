@@ -4,11 +4,16 @@ import "react-photo-view/dist/react-photo-view.css";
 
 export default function Home(){
   const [rooms,setRooms]=useState([]);
-  useEffect(()=>{fetch("https://topville-hotel-api.onrender.com/api/rooms").then(r=>r.json()).then(d=>setRooms(d)).catch(()=>{console.log("rooms fetch failed")});},[]);
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://topville-hotel-api.onrender.com";
+
+  useEffect(()=>{fetch(`${API_BASE}/api/rooms`).then(r=>r.json()).then(d=>setRooms(d)).catch(()=>{console.log("rooms fetch failed")});},[API_BASE]);
+
   const galleryImages=["/src/assets/hero-optim.jpeg","https://images.unsplash.com/photo-1590490359854-dfba59ee8bab?auto=format&fit=crop&w=800&q=60","https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=60"];
+
   return (<div className="font-sans text-gray-800">
     <section id="hero" className="h-screen bg-cover bg-center flex items-center justify-center text-center text-white" style={{backgroundImage:"url('/src/assets/hero-optim.jpeg')"}}>
-      <div className="bg-black/50 w-full h-full flex flex-col justify-center items-center p-6">
+      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="relative z-10 p-6 max-w-3xl text-center">
         <h1 className="text-5xl md:text-6xl font-bold mb-3 text-[#EAB308] drop-shadow-lg">Topville Hotel Mombasa</h1>
         <p className="text-xl mb-6 text-gray-100 font-light">Relax. Refresh. Reconnect.</p>
         <a href="https://wa.me/254781809900" target="_blank" rel="noreferrer" className="btn-accent font-semibold shadow-lg hover:scale-105 transition-transform">Book via WhatsApp</a>
@@ -24,7 +29,7 @@ export default function Home(){
             <div className="p-4">
               <h3 className="text-xl font-semibold">{room.title}</h3>
               <p className="text-gray-600 mt-2">{room.description}</p>
-              <p className="text-blue-600 font-bold mt-2">{room.price}/night</p>
+              <p className="text-[#1E3A8A] font-bold mt-2">{room.price}/night</p>
             </div>
           </div>
         ))}
