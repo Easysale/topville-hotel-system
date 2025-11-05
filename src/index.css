@@ -1,86 +1,24 @@
-/* ===============================
-   🌴 Topville Hotel Mombasa Theme
-   =============================== */
-
-/* Tailwind base + utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global style overrides */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply bg-gray-50 text-gray-800 font-sans antialiased;
-    font-family: 'Inter', 'Poppins', system-ui, sans-serif;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-gray-900;
-  }
-
-  a {
-    @apply text-blue-700 hover:text-blue-900 transition-colors;
-  }
-
-  button {
-    @apply transition duration-200 ease-in-out;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  scroll-behavior: smooth;
 }
 
-/* Layout spacing */
-section {
-  @apply py-12 px-6 md:px-10;
-}
+a, button { transition: all 0.3s ease; }
 
-/* Hotel-specific custom classes */
-@layer components {
-  .btn-primary {
-    @apply bg-blue-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-blue-700;
-  }
+.btn-primary { background-color: #1e3a8a; color: white; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.5rem; }
+.btn-primary:hover { background-color: #0f1e63; }
 
-  .btn-secondary {
-    @apply border border-blue-600 text-blue-600 px-6 py-3 rounded-xl hover:bg-blue-600 hover:text-white;
-  }
+.btn-accent { background-color: #eab308; color: #1f2937; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.5rem; }
+.btn-accent:hover { background-color: #facc15; }
 
-  .card {
-    @apply bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:scale-[1.02];
-  }
+section { scroll-margin-top: 100px; padding-top: 4rem; padding-bottom: 4rem; }
 
-  .card-image {
-    @apply w-full h-56 object-cover;
-  }
-
-  .card-body {
-    @apply p-5;
-  }
-
-  .tagline {
-    @apply text-gray-500 italic mt-2;
-  }
-}
-
-/* Navbar styling (optional if you add a nav) */
-nav {
-  @apply w-full bg-white shadow-sm py-4 px-8 flex justify-between items-center sticky top-0 z-50;
-}
-
-nav a {
-  @apply font-medium text-gray-700 hover:text-blue-600;
-}
-
-nav .logo {
-  @apply font-bold text-2xl text-blue-700 tracking-wide;
-}
-
-/* Footer styling */
-footer {
-  @apply bg-blue-50 text-gray-700 py-6 text-center mt-10;
-}
-
-footer a {
-  @apply text-blue-600 hover:underline;
-}
+footer { background-color: #0f172a; color: #f9fafb; text-align: center; padding: 1.5rem 0; font-size: 0.9rem; }
